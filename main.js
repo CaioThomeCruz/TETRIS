@@ -1,16 +1,16 @@
-//recupera o elemento
+
 const canvas = document.getElementById('painel');
-//obtem o contexto 2d
+
 const ctx = canvas.getContext('2d');
 
-//elemento e contexto proxima peça
+
 
 const canvasNext = document.getElementById('proximo');
 const ctxNext = canvasNext.getContext('2d');
 
 
 
-// dados usuário
+
 
 let contaValues = {
   pontos: 0,
@@ -38,19 +38,17 @@ let painel = new Painel(ctx, ctxNext);
 addEventListener();
 inicializaProximo();
 
-//inicializa a próxima peça
+
 function inicializaProximo() {
   // Calcula o tamanho do elemento canvas
 ctxNext.canvas.width = 4 * TAM_BLOCO;
 ctxNext.canvas.height = 4 * TAM_BLOCO;
 
-// escala o tamanho dos blocos
-// utilizando o scale não é necessário recalcular 
-//o tamanho dos blocos manualmente
+
 ctxNext.scale(TAM_BLOCO, TAM_BLOCO);
 }
 
-//REMOVE DO arquivo de constantes e migar para main, sem ser contante
+
 movimento = {
   [KEY.LEFT]: p => ({ ...p, x: p.x - 1 }),
   [KEY.RIGHT]: p => ({ ...p, x: p.x + 1 }),
@@ -69,7 +67,7 @@ function addEventListener(){
       gameOver();
     } else if (movimento[event.keyCode]) {
       event.preventDefault();
-      // Get new state
+      
       let p = movimento[event.keyCode](painel.peca);
       if (event.keyCode === KEY.SPACE) {
         
@@ -147,7 +145,7 @@ function animar(now = 0) {
     }
   }
 
-  // Clear board before drawing new state.
+
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
  painel.desenho();
