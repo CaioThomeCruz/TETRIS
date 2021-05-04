@@ -22,13 +22,11 @@ class Peca {
   
   desenho() {
 	  
-	  //define a cor de preenchimento
+	 
   this.ctx.fillStyle = this.color;
   this.forma.forEach((row, y) => {
     row.forEach((value, x) => {
-      // this.x, this.y determinam a posição esquerda e superior da peça
-      // x, y determina a posição do bloco na forma
-      // this.x + x é a posiçãodo bloco no painel
+     
       if (value > 0) {
 		  //preenche a forma
         this.ctx.fillRect(this.x + x, this.y + y, 1, 1);
