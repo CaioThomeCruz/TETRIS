@@ -7,7 +7,7 @@ class Painel {
   idRequisicao;
   tempo;
   
-  //definir o construtor
+   
   
   constructor(ctx, ctxNext) {
     this.ctx = ctx;
@@ -15,17 +15,17 @@ class Painel {
     this.init();
   }
   
-  //definir método de inicialização
+  
   init() {
-    // Calcula o tamanho do canvas.
+    
     this.ctx.canvas.width = COLUNA * TAM_BLOCO;
     this.ctx.canvas.height = LINHA * TAM_BLOCO;
 
-    // escala para não precisar recalcular
+    
     this.ctx.scale(TAM_BLOCO, TAM_BLOCO);
   }
   
-  //define o método reset
+  
   reset() {
     this.grid = this.getPainelVazio();
     this.peca = new Peca(this.ctx);
@@ -85,33 +85,32 @@ class Painel {
 
     this.grid.forEach((row, y) => {
 
-      // se todo valor for acima de 0
+      
       if (row.every(value => value > 0)) {
         linhas++;
 
-        // Remove a linha.
+       
         this.grid.splice(y, 1);
 
-        // preenche a linha do topo com zeros.
+        
         this.grid.unshift(Array(COLUNA).fill(0));
       }
     });
     
     if (linhas > 0) {
-      // calcula pontuação.
+      
 
       conta.pontos += this.getLinhasLimpas(linhas);
       conta.linhas += linhas;
 
       // se atingiu a linhas para o próximo nivel
       if (conta.linhas >= LINHAS_POR_NIVEL) {
-        // Goto next level
+        
         conta.nivel++;  
         
-        // Remove lines so we start working for the next level
         conta.linhas -= LINHAS_POR_NIVEL;
 
-        // Increase speed of game
+        
         tempo.nivel = NIVEL[conta.nivel];
       }
     }
@@ -142,7 +141,7 @@ class Painel {
     });
   }
   
-  // retorna a matriz preenchida com zeros
+ 
   getPainelVazio() {
     return Array.from(
       {length: LINHA}, () => Array(COLUNA).fill(0)
@@ -176,7 +175,7 @@ class Painel {
 
  rotate(peca) {
 	 console.table("ok");
-    // Clone with JSON for immutability.
+
     let p = JSON.parse(JSON.stringify(peca));
 
     // Transpose matrix
@@ -187,7 +186,7 @@ class Painel {
       }
     }
 
-    // Reverse the order of the columns.
+ 
     p.forma.forEach(row => row.reverse());
 
     return p;
