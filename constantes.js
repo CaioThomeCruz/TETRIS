@@ -81,7 +81,6 @@ const NIVEL = {
 }
 Object.freeze(NIVEL);
 
-//Pontu
 const PONTOS = {
   SIMPLES: 100,
   DUPLO: 300,
