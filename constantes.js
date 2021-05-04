@@ -2,7 +2,7 @@
 const COLUNA = 10;
 const LINHA = 20;
 const TAM_BLOCO = 30;
-// adiciona qtde de linhas por nivel
+
 const LINHAS_POR_NIVEL = 10;
 
 const KEY = {
@@ -55,7 +55,7 @@ const FORMAS = [
 ];
 Object.freeze(FORMAS);
 
-//relação das peças e o intervalo de cada uma
+
 const NIVEL = {
   0: 800,
   1: 720,
@@ -77,12 +77,11 @@ const NIVEL = {
   17: 50,
   18: 50,
   19: 30,
-  20: 30,
-  // 29+ será 20ms
+  20 :30,	
 }
 Object.freeze(NIVEL);
 
-//Pontuação
+//Pontu
 const PONTOS = {
   SIMPLES: 100,
   DUPLO: 300,
